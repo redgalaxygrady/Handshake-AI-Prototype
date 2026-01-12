@@ -10,12 +10,9 @@ export const INTERACTIONS: Interaction[] = [
     correctChoice: ErrorType.REASONING,
     reveal: {
       highlightText: "because passengers boarded too early",
-      label: "Reasoning breaks here",
-      explanation: "Boarding time does not causally affect an aircraft’s ability to take off.",
-      definitions: {
-        reasoning: "The model has the relevant facts but connects them incorrectly, leading to a false conclusion.",
-        recall: "The model fails because a basic fact is missing, wrong, or fabricated."
-      }
+      label: "Reasoning failure",
+      decisiveSignal: "The facts are fine, but the causal link is invalid.",
+      explanation: "Boarding time does not causally affect an aircraft’s ability to take off."
     }
   },
   {
@@ -26,27 +23,36 @@ export const INTERACTIONS: Interaction[] = [
     correctChoice: ErrorType.REASONING,
     reveal: {
       highlightText: "because the suitcase was too heavy",
-      label: "Reasoning breaks here",
+      label: "Reasoning failure",
+      decisiveSignal: "The facts are fine, but the causal link is invalid.",
       explanation: "Weight is a real attribute, but it is not causally relevant to whether luggage is loaded."
     }
   },
   {
     id: 3,
-    aiResponse: "The hotel reservation was cancelled because the confirmation email was not opened.",
+    label: "Quick check",
+    aiResponse: "The hotel reservation was cancelled because the hotel system deletes bookings automatically if the confirmation email is not opened within 24 hours.",
     prompt: "What kind of failure is this?",
     choices: [ErrorType.REASONING, ErrorType.RECALL],
     correctChoice: ErrorType.RECALL,
     reveal: {
-      explanation: "Opening an email does not control whether a reservation is cancelled. This is a false description of how the system works."
+      highlightText: "deletes bookings automatically if the confirmation email is not opened",
+      label: "Recall failure",
+      decisiveSignal: "The key fact is wrong or invented.",
+      explanation: "Hotel booking systems do not cancel reservations based on whether a confirmation email is opened. This describes a fabricated system rule."
     }
   },
   {
     id: 4,
+    label: "Borderline case",
     aiResponse: "The passenger missed the connection because the airline updated the schedule after booking.",
-    prompt: "Which error is primary?",
-    choices: [ErrorType.REASONING, ErrorType.RECALL],
+    prompt: "Why is this case difficult to classify?",
+    choices: [], // Reflection only
     reveal: {
-      explanation: "This example is intentionally ambiguous. The failure could stem from missing context or flawed reasoning about timing. In real evaluation work, cases like this may be flagged rather than force-classified."
+      highlightText: "airline updated the schedule after booking",
+      label: "Classification ambiguity",
+      decisiveSignal: "The signal is insufficient to determine the failure type.",
+      explanation: "This example is intentionally ambiguous. The explanation could reflect missing contextual information or an unclear causal relationship. The key point is recognizing when a response does not cleanly fit a single failure category."
     }
   }
 ];

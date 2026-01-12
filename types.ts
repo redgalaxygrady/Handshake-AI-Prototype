@@ -7,17 +7,15 @@ export enum ErrorType {
 
 export interface Interaction {
   id: number;
+  label?: string;
   aiResponse: string;
   prompt: string;
   choices: string[];
   correctChoice?: string;
   reveal: {
-    highlightText?: string;
-    label?: string;
+    highlightText: string;
+    label: string;
+    decisiveSignal: string;
     explanation: string;
-    definitions?: {
-      reasoning: string;
-      recall: string;
-    };
   };
 }
