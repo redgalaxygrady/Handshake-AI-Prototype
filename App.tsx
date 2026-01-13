@@ -1,8 +1,8 @@
 
 import React, { useState, useRef } from 'react';
-import { INTERACTIONS } from './constants';
-import InteractionBlock from './components/InteractionBlock';
-import ContextDrawer from './components/ContextDrawer';
+import { INTERACTIONS } from './constants.ts';
+import InteractionBlock from './components/InteractionBlock.tsx';
+import ContextDrawer from './components/ContextDrawer.tsx';
 
 const App: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState<number>(1);
@@ -98,7 +98,7 @@ const App: React.FC = () => {
                 </div>
             </section>
 
-            {/* Core Definitions Reference (from Image) */}
+            {/* Core Definitions Reference */}
             <section className="pt-12 border-t border-slate-100">
                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="space-y-4">

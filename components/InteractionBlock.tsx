@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { Interaction } from '../types';
+import { Interaction } from '../types.ts';
 
 interface InteractionBlockProps {
   interaction: Interaction;
@@ -154,7 +154,6 @@ const InteractionBlock: React.FC<InteractionBlockProps> = ({ interaction, onComp
           )}
         </div>
 
-        {/* Standardized Reveal / Analysis */}
         {revealed && (
           <div className="reveal-animation space-y-10 pt-4">
             <div className={`p-8 rounded-2xl border-l-[6px] shadow-sm transition-all duration-500 ${interaction.correctChoice ? (isCorrect ? "bg-green-50/50 border-green-600" : "bg-red-50/50 border-red-600") : "bg-slate-50 border-slate-900"}`}>

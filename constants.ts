@@ -1,5 +1,5 @@
 
-import { Interaction, ErrorType } from './types';
+import { Interaction, ErrorType } from './types.ts';
 
 export const INTERACTIONS: Interaction[] = [
   {
