@@ -15,6 +15,8 @@ const App: React.FC = () => {
     }
   };
 
+  const CHEATSHEET_URL = "https://drive.google.com/file/d/1kfbL-_5fMKBg63HYigFTJDV3ShwIrBcp/view?usp=sharing";
+
   return (
     <div className="min-h-screen bg-white selection:bg-yellow-100 relative overflow-x-hidden flex" ref={containerRef}>
       {/* Main Content Area */}
@@ -88,13 +90,15 @@ const App: React.FC = () => {
                         Open Fellow Context
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </button>
-                    <button 
-                        onClick={(e) => { e.preventDefault(); }}
+                    <a 
+                        href={CHEATSHEET_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-full md:w-64 px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-lg text-xs font-bold uppercase tracking-widest hover:border-slate-900 hover:text-slate-900 transition-colors flex items-center justify-center gap-2 shadow-sm shrink-0"
                     >
                         Download Cheatsheet
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </button>
+                    </a>
                 </div>
             </section>
 
