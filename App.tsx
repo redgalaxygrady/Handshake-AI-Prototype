@@ -130,17 +130,16 @@ const App: React.FC = () => {
             />
           ))}
 
-          {/* Footer Reference Link */}
-          <footer className="flex flex-col md:flex-row justify-between items-center py-24 border-t border-slate-100 gap-8">
-            <p className="text-sm text-slate-400">© 2024 AI Evaluation Learning Systems</p>
-            <a 
-                href="#" 
-                onClick={(e) => e.preventDefault()}
-                className="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 underline underline-offset-8 decoration-slate-200 hover:decoration-slate-900 transition-all"
+          {/* Persistent Next Module Link */}
+          <section className="py-32 flex justify-center border-t border-slate-50">
+            <button 
+              onClick={(e) => e.preventDefault()}
+              className="text-indigo-600 hover:text-indigo-800 font-extrabold text-2xl tracking-tight transition-all hover:translate-x-1 flex items-center gap-3 active:scale-95"
             >
-                Download Cheatsheet
-            </a>
-          </footer>
+              SFT vs RLHF
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </section>
         </main>
       </div>
 
